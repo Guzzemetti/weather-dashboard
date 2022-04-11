@@ -7,5 +7,3 @@ var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + citySearch 
 
 // Variable to store user input
 var citySearch = document.getElementById("citySearch").value;
-
-fetch(queryURL);
