@@ -5,10 +5,10 @@ const apiKey = "fc02d6d30dd32f5567b9706fc1c7ef42";
 var weatherApiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${citySearch}&limit=5&appid=${apiKey}`;
 
 
-var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=" + apiKey;
+var queryURL = `http://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=" + apiKey`;
 
 // Variable to store user input
-var citySearch = document.getElementById("citySearch").value;
+var citySearch = document.getElementById("citySearch");
 
 
 // TD Make variables for DOM Elements
