@@ -1,7 +1,9 @@
 // open weather API fetch request link and API KeyboardEvent
 const apiKey = "fc02d6d30dd32f5567b9706fc1c7ef42";
 
+// Url for geolocation 
 var weatherApiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${citySearch}&limit=5&appid=${apiKey}`;
+
 
 var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=" + apiKey;
 
