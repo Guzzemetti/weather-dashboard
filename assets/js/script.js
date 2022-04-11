@@ -22,7 +22,7 @@ dayjs.extend(window.dayjs_plugin_timezone);
 
 
 
-fetch(weatherApiUrl){
-    .then(response => response.json())
-    .then(data => console.log(data));
-}
+// fetch(weatherApiUrl){
+//     .then(response => response.json())
+//     .then(data => console.log(data));
+// }
