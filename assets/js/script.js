@@ -10,16 +10,25 @@ var queryURL = `http://api.openweathermap.org/data/2.5/weather?q=" + citySearch 
 
 // Variable to store user input
 var citySearch = document.getElementById("citySearch");
-
+// __________________________________________________________________________________
 
 // TD Make variables for DOM Elements
 
 
-// Add timezone for Day.js
-dayjs.extend(window.dayjs_plugin_utc);
-dayjs.extend(window.dayjs_plugin_timezone);
 
 
+
+
+
+
+
+
+
+
+
+
+
+// __________________________________________________________________________________
 // Fetch request for the geolocation API/
 function fetchReq(){
 fetch("http://api.openweathermap.org/geo/1.0/direct?q=Orlando&appid=d24820a4b09e08d1bb27ae1a68013291", {
@@ -47,3 +56,20 @@ fetch("https://api.openweathermap.org/data/2.5/onecall?lat=50&lon=50&units=imper
 };
 
 fetchReq();
+// __________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+// __________________________________________________________________________________
+// Add timezone for Day.js
+dayjs.extend(window.dayjs_plugin_utc);
+dayjs.extend(window.dayjs_plugin_timezone);
+// __________________________________________________________________________________
+

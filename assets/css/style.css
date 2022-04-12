@@ -1,4 +1,7 @@
-/* *{
+*{
     font-family: 'Courier New', Courier, monospace;
 }
 
+#searchBox {
+    border-bottom: 3px solid black
+};
