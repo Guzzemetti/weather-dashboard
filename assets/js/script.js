@@ -13,6 +13,8 @@ var tempOne = document.getElementById("tempOne");
 var windOne = document.getElementById("windOne");
 var humidityOne = document.getElementById("humidityOne");
 var uvIndex = document.getElementById("uvIndex");
+var searchBox = document.getElementById("searchBox");
+var searchList = document.getElementById("searchList");
 
 // Triggers api request and subsequent functions when the search button is pressed
 document.getElementById("searchButton").addEventListener("click", fetchGeo);
@@ -48,6 +50,7 @@ function oneCall(data) {
     .then(function(data) {
         console.log(data);
         currentWeather(data);
+        appendSearch();
     })
   };
 // __________________________________________________________________________________
@@ -71,12 +74,30 @@ function currentWeather(data){
   windOne.innerHTML = "Wind Speed: " + wind;
   humidityOne.innerHTML = "Humidity: " + humidity;
   uvIndex.innerHTML = "UV Index: " + uvIn;
-};
+
 // _________________________________________________________________
 
+for (let i = 0; i < 6; i++) {
+  var seconds = data.daily[i].dt;
+  if( seconds > i) {
+    var milliseconds = seconds * 1000
+    var dataObject = new Date(milliseconds)
+    var normalDate = []
+    var normalDate = dataObject.toLocaleDateString()
+    console.log(normalDate)
+  }}};
 
 
-
+function appendSearch () {
+  let userSearch =  citySearch.value.trim();
+  let search = document.createElement("li");
+  let searchBtn = document.createElement("button");
+  
+  
+  searchList.append(search);
+  search.append(searchBtn);
+  searchBtn.innerText = userSearch;
+}
 
 
 
@@ -121,7 +142,3 @@ dayjs.extend(window.dayjs_plugin_timezone);
 // };
 
 // fetchReq();
-
-
-
-
