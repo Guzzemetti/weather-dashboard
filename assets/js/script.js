@@ -1,20 +1,24 @@
 // open weather API fetch request link and API KeyboardEvent
 const apiKey = "d24820a4b09e08d1bb27ae1a68013291";
-
 // Url for geolocation 
 var weatherApiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${citySearch}&limit=5&appid=${apiKey}`;
-
 var queryURL = `http://api.openweathermap.org/data/2.5/weather?q=` + citySearch + `&appid=` + `apiKey`;
-
+// __________________________________________________________________________________
 // Variable to store user input
 var citySearch = document.getElementById("citySearch");
 var currentDayHeader = document.getElementById("currentHeader");
-var currentDayBody = document.getElementById("currentBody");
+var currentDayCard = document.getElementById("currentCard");
+var cardTitle = document.querySelector(".card-title");
+var tempOne = document.getElementById("tempOne");
+var windOne = document.getElementById("windOne");
+var humidityOne = document.getElementById("humidityOne");
+var uvIndex = document.getElementById("uvIndex");
 
+// Triggers api request and subsequent functions when the search button is pressed
 document.getElementById("searchButton").addEventListener("click", fetchGeo);
+// _____________________________________________________________
 
-// __________________________________________________________________________________
-
+// Fetches location data for the submitted city
 function fetchGeo() {
   var userInputValue = citySearch.value.trim();
   if(userInputValue) {
@@ -26,11 +30,12 @@ function fetchGeo() {
       console.log(data);
       oneCall(data)
   })
-  console.log(userInputValue);
-  console.log(citySearch);
+  // console.log(userInputValue);
+  // console.log(citySearch);
   }
 }
-
+// __________________________________________________________________________________
+// Fetches current weather for the submitted city
 function oneCall(data) {
   var latitude = data[0].lat
   var longitude = data[0].lon
@@ -42,14 +47,32 @@ function oneCall(data) {
     })
     .then(function(data) {
         console.log(data);
+        currentWeather(data);
     })
-    currentWeather();
   };
+// __________________________________________________________________________________
 
-function currentWeather(){
-  currentDayHeader.textContent = "change";
+// Displays current day's weather for the submitted city on the main card
+function currentWeather(data){
+  var temp = data.current.temp;
+  var wind = data.current.wind_speed;
+  var humidity = data.current.humidity;
+  var uvIn = data.current.uvi;
+  // console.log(uvIn);
+  var currentDt = data.current.dt;
+  var milliseconds = currentDt * 1000;
+  var fullDate = new Date(milliseconds);
+  var currentDate = fullDate.toLocaleDateString();
+
+  // Displays current data in the main card
+  cardTitle.textContent = citySearch.value.trim();
+  currentDayHeader.innerHTML = currentDate;
+  tempOne.innerHTML = "Temperature: " + temp;
+  windOne.innerHTML = "Wind Speed: " + wind;
+  humidityOne.innerHTML = "Humidity: " + humidity;
+  uvIndex.innerHTML = "UV Index: " + uvIn;
 };
-
+// _________________________________________________________________
 
 
 
