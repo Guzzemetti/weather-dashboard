@@ -24,7 +24,7 @@ document.getElementById("searchButton").addEventListener("click", fetchGeo);
 function fetchGeo() {
   var userInputValue = citySearch.value.trim();
   if(userInputValue) {
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?appid=d24820a4b09e08d1bb27ae1a68013291&q=${userInputValue}&=&=`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?appid=d24820a4b09e08d1bb27ae1a68013291&q=${userInputValue}&=&=`)
   .then(function(res) {
     return res.json()
   })
